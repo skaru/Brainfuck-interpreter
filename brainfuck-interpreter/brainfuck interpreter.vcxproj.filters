@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\JumpList">
+      <UniqueIdentifier>{a5f5e1c5-5064-4917-8faa-87c1222f22e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Program">
+      <UniqueIdentifier>{edb98327-9a16-40b8-9081-7fa57cd47037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cell">
+      <UniqueIdentifier>{3cf6a9b0-52e0-4e08-abba-5b404d5c9a55}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cell\Cell.cpp">
+      <Filter>Source Files\Cell</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Program\Program.cpp">
+      <Filter>Source Files\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JumpList\JumpList.cpp">
+      <Filter>Source Files\JumpList</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Cell\Cell.h">
+      <Filter>Source Files\Cell</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Program\Program.h">
+      <Filter>Source Files\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JumpList\JumpList.h">
+      <Filter>Source Files\JumpList</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

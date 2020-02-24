@@ -1,0 +1,7 @@
+.vs
+Debug
+Release
+x64
+brainfuck-interpreter/Debug
+brainfuck-interpreter/Release
+brainfuck-interpreter/x64
