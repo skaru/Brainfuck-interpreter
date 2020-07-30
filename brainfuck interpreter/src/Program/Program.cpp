@@ -1,15 +1,11 @@
 #include "Program.h"
 
-Program::Program() {
-    auto* object = this;
-    void(Program::*ptr)();
-    ptr = &Program::execute;
-
-    int i = 1;
-}
+Program::Program() : cells(new Cell[CELLS]), jumpList(new JumpList) 
+{}
 
 Program::~Program() {
     delete[] cells;
+    delete jumpList;
     std::cout << '\n';
 }
 
@@ -24,8 +20,11 @@ void Program::execute() {
         try {
             executeInstruction(instructions[programCounter]);
         } catch(const char *msg) {
-            std::cout << "Error at instruction " << programCounter + 1 << ": " << msg << std::endl;
+            std::cout << "Error at instruction " << programCounter + 1 << ": " << msg << "\n";
             break;
+        }
+        catch ( ... ) {
+            std::cout << "Unexpected error\n";
         }
     }
 }
@@ -64,32 +63,27 @@ void Program::executeInstruction(char instruction) {
 void Program::checkJumpForwards() {
     jumpList->addJump(programCounter, &instructions[programCounter]);
 
-    if(currentCell->value == 0) {
+    if(!currentCell->value) {
         programCounter = jumpList->getNextJumpEnd();
         jumpList->removeJump();
     }
 }
 
 void Program::checkJumpBackwards() {
-    if(currentCell->value == 0) {
+    if(!currentCell->value)
         jumpList->removeJump();
-    } else {
+    else
         programCounter = jumpList->getNextJumpStart();
-    }
 }
 
 void Program::movePointerLeft() {
-    if(currentCell > &cells[0]) {
+    if(currentCell > &cells[0])
         currentCell--;
-    } else {
-        throw "out of bounds(-1)";
-    }
+    else throw "out of bounds(-1)";
 }
 
 void Program::movePointerRight() {
-    if(currentCell < &cells[CELLS - 1]) {
+    if(currentCell < &cells[CELLS - 1])
         currentCell++;
-    } else {
-        throw "out of bounds(+1)";
-    }
+    else throw "out of bounds(+1)";
 }

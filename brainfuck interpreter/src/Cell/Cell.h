@@ -2,7 +2,7 @@
 #include <iostream>
 
 class Cell {
-    public:
+public:
     void increment();
     void decrement();
     void print();

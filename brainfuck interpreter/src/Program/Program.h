@@ -5,23 +5,25 @@
 #include "../JumpList/JumpList.h"
 
 class Program {
-    public:
+public:
     Program();
     ~Program();
     void load();
     void execute();
 
-    private:
+private:
     void executeInstruction(char);
     void checkJumpBackwards();
     void checkJumpForwards();
     void movePointerLeft();
     void movePointerRight();
-    bool error = false;
-    JumpList *jumpList = new JumpList;
+
+private:
+    bool        error = false;
+    JumpList*   jumpList = nullptr;
     std::string instructions;
-    const int CELLS = 300;
-    Cell *cells = new Cell[CELLS];
-    Cell *currentCell = &cells[0];
-    int programCounter = 0;
+    const int   CELLS = 300;
+    Cell*       cells = nullptr;
+    Cell*       currentCell = cells;
+    int         programCounter = 0;
 };

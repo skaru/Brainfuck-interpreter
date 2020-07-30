@@ -3,13 +3,13 @@
 #include <string>
 
 class JumpList {
-    public:
+public:
     int getNextJumpStart();
     int getNextJumpEnd();
     void addJump(const int, const std::string);
     void removeJump();
 
-    private:
+private:
     int findEndpoint(const int, const std::string);
     std::forward_list<std::pair<int, int>> jumps;
 };
